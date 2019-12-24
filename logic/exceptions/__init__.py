@@ -1,2 +1,2 @@
-from logic.exceptions.ParameterException import ParameterException
-from logic.exceptions.OperationException import OperationException
+from logic.exceptions.parameter_exception import ParameterException
+from logic.exceptions.operation_exception import OperationException
