@@ -10,7 +10,7 @@ class BaseSource(ABC):
         pass
     
     @abstractmethod
-    def get_all(self):
+    def get_all(self, page = 1, records_per_page = None):
         pass
     
     @abstractmethod
@@ -18,5 +18,5 @@ class BaseSource(ABC):
         pass
     
     @abstractmethod
-    def get_by_name(self, name):
+    def get_by_name(self, name, page = 1, records_per_page = None):
         pass

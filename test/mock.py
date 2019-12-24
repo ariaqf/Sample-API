@@ -22,7 +22,7 @@ class Database(BaseSource):
             return None
     
     
-    def get_all(self):
+    def get_all(self, page = 1, records_per_page = None):
         return self.planets
     
     
@@ -30,5 +30,5 @@ class Database(BaseSource):
         return list(filter(lambda x : True if x.id == id else False, self.planets))
     
     
-    def get_by_name(self, name):
+    def get_by_name(self, name, page = 1, records_per_page = None):
         return list(filter(lambda x : True if x.name == name else False, self.planets))
