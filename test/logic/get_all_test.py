@@ -30,10 +30,19 @@ def test_get_all():
     ret = get_all(queryable)
     assert len(ret.planets) == 4
     assert ret.page == 1
-    assert ret.pages == 1
-    #Cleanup
+    assert ret.total_pages == 1
+    queryable.clean()
+ 
+def test_get_all_page():
     for x in range(4):
         i = x+1
-        queryable.delete(i)
-    ret = get_all(queryable)
-    assert len(ret) == 0
+        queryable.save(Planet(id = i, 
+                              name = "Planet{}".format(i),
+                              climate = "Climate{}".format(i),
+                              terrain = "Terrain{}".format(i),
+                              number_of_movies= -1))
+    ret = get_all(queryable, records_per_page=2)
+    assert len(ret.planets) == 2
+    assert ret.page == 1
+    assert ret.total_pages == 2
+    queryable.clean()

@@ -48,3 +48,6 @@ class Database(BaseSource):
         total_pages = ceil(len(self.planets)/records_per_page)
         
         return PlanetsPage(list(filter(lambda x : True if x.name == name else False, self.planets))[start_record:end_record],page,total_pages,records_per_page)
+    
+    def clean(self):
+        self.planets = []
