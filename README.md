@@ -50,7 +50,7 @@ Planet will be an entity composed of Name, Climate, Terrain, Number of Movies an
 
 This decision is a bit critical because from the Data viewpoint it will return a Planet Object... But the BasicPlanet record will not have the number of movies, this field will be recovered from a external source.
 
-In an analogy to a real world scenario the manager would ask for the data of a single planet, one clerk would go fetch the local data of this record, but he also wants to cross reference it so he will also call his friend elsewhere and asak for the number of movies.
+In an analogy to a real world scenario the manager would ask for the data of a single planet to his subordinate, the subordinate would ask the archive clerk to go fetch the local data of this record, but he also wants to cross reference it so he will also call another clerk elsewhere and asak for the number of movies. The manager may also ask his subordinate to go to the archive and ask the clerk there to archive a new planet, to remove it from the archive...
 
 ## Use Cases
 
