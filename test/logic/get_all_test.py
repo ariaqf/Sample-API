@@ -15,7 +15,9 @@ def test_get_all_no_queryable():
         
 def test_get_all_empty():
     ret = get_all(queryable)
-    assert ret == []
+    assert ret.planets == []
+    assert ret.page == 1
+    assert ret.pages == 1
     
 def test_get_all():
     for x in range(4):
@@ -26,7 +28,9 @@ def test_get_all():
                               terrain = "Terrain{}".format(i),
                               number_of_movies= -1))
     ret = get_all(queryable)
-    assert len(ret) == 4
+    assert len(ret.planets) == 4
+    assert ret.page == 1
+    assert ret.pages == 1
     #Cleanup
     for x in range(4):
         i = x+1

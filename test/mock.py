@@ -1,5 +1,7 @@
 from entities.planet import Planet
 from logic import BaseSource
+from math import ceil
+from logic.data_output import PlanetsPage
  
 
 class Database(BaseSource):
@@ -23,9 +25,14 @@ class Database(BaseSource):
     
     
     def get_all(self, page = 1, records_per_page = None):
+        if records_per_page is None:
+            records_per_page = len(self.planets)
+        records_per_page = min(records_per_page,100)
         start_record = min((page-1)*records_per_page, len(self.planets))
         end_record = min((page)*records_per_page + 1, len(self.planets))
-        return self.planets[start_record:end_record]
+        total_pages = ceil(len(self.planets)/records_per_page)
+        
+        return PlanetsPage(self.planets[start_record:end_record],page,total_pages,records_per_page)
     
     
     def get(self, id):
@@ -33,6 +40,11 @@ class Database(BaseSource):
     
     
     def get_by_name(self, name, page = 1, records_per_page = None):
+        if records_per_page is None:
+            records_per_page = len(self.planets)
+        records_per_page = min(records_per_page,100)
         start_record = min((page-1)*records_per_page, len(self.planets))
         end_record = min((page)*records_per_page + 1, len(self.planets))
-        return list(filter(lambda x : True if x.name == name else False, self.planets))[start_record:end_record]
+        total_pages = ceil(len(self.planets)/records_per_page)
+        
+        return PlanetsPage(list(filter(lambda x : True if x.name == name else False, self.planets))[start_record:end_record],page,total_pages,records_per_page)
