@@ -1,14 +1,14 @@
-from entities.planet import Planet
-from logic.output.CreatePlanetResponse import CreatePlanetResponse
+from entities import Planet
+from logic.output import CreatePlanetResponse
+from logic.output import PlanetResponse 
+from logic.exceptions import ParameterException
 
-
-def create_planet(name, climate, terrain, queryable):
-    p = None
-    if (name != None and name != '' 
-    and terrain != None and terrain != '' 
-    and climate != None and climate != ''):
-        pass
+def create_planet(name, climate, terrain, datasource):
+    planet_response = None
+    if (datasource is None):
+        raise ParameterException("DataSource is not acceptable")
     else:
-        p = Planet(name, climate, terrain)
-        p = queryable.save(p)
-    return CreatePlanetResponse(p)
+        planet = Planet(name=name, climate=climate, terrain=terrain)
+        planet = datasource.save(planet)
+        planet_response = PlanetResponse(planet)
+    return CreatePlanetResponse(planet = planet_response)
