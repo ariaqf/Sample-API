@@ -27,3 +27,9 @@ def test_get_all():
                               number_of_movies= -1))
     ret = get_all(queryable)
     assert len(ret) == 4
+    #Cleanup
+    for x in range(4):
+        i = x+1
+        queryable.delete(i)
+    ret = get_all(queryable)
+    assert len(ret) == 0
