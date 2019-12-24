@@ -1,19 +1,20 @@
 from entities.planet import Planet
+from logic import BaseSource
+ 
 
-
-class Database:
+class Database(BaseSource):
     def __init__(self): 
         self.planets = []
         
         
     def save(self, p):
-        x = Planet(id = -1, name = p.name, climate = p.climate, terrain = p.terrain, number_of_movies = 0)
+        x = Planet(id = p.id, name = p.name, climate = p.climate, terrain = p.terrain)
         self.planets.append(x)
         return x
 
 
     def delete(self, id):
-        x = filter(lambda x : True if x.id == id else False, self.planets)
+        x = list(filter(lambda x : True if x.id == id else False, self.planets))
         if x != []:
             self.planets.remove(x[0])
             return x[0]
@@ -26,8 +27,8 @@ class Database:
     
     
     def get(self, id):
-        return filter(lambda x : True if x.id == id else False, self.planets)
+        return list(filter(lambda x : True if x.id == id else False, self.planets))
     
     
     def get_by_name(self, name):
-        return filter(lambda x : True if x.name == name else False, self.planets)
+        return list(filter(lambda x : True if x.name == name else False, self.planets))
