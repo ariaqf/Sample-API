@@ -23,7 +23,9 @@ class Database(BaseSource):
     
     
     def get_all(self, page = 1, records_per_page = None):
-        return self.planets
+        start_record = min((page-1)*records_per_page, len(self.planets))
+        end_record = min((page)*records_per_page + 1, len(self.planets))
+        return self.planets[start_record:end_record]
     
     
     def get(self, id):
@@ -31,4 +33,6 @@ class Database(BaseSource):
     
     
     def get_by_name(self, name, page = 1, records_per_page = None):
-        return list(filter(lambda x : True if x.name == name else False, self.planets))
+        start_record = min((page-1)*records_per_page, len(self.planets))
+        end_record = min((page)*records_per_page + 1, len(self.planets))
+        return list(filter(lambda x : True if x.name == name else False, self.planets))[start_record:end_record]
