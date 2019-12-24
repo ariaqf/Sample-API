@@ -1,4 +1,4 @@
-from PlanetResponse import PlanetResponse
+from logic.output.PlanetResponse import PlanetResponse
 
 class DeletePlanetResponse:
     def __init__(self, planet = None):
