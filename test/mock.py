@@ -2,7 +2,7 @@ from entities.planet import Planet
 
 
 class Database:
-    def Database(self): 
+    def __init__(self): 
         self.planets = []
         
         

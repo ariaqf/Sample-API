@@ -1,5 +1,5 @@
 class PlanetResponse:
-    def PlanetResponse(self):
+    def __init__(self):
         self.id = None
         self.name = None
         self.climate = None
