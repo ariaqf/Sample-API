@@ -17,7 +17,7 @@ def test_get_all_empty():
     ret = get_all(queryable)
     assert ret.planets == []
     assert ret.page == 1
-    assert ret.pages == 1
+    assert ret.total_pages == 1
     
 def test_get_all():
     for x in range(4):

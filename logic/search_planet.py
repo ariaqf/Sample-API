@@ -1,4 +1,4 @@
-from logic.output import GetPlanetResponse, PlanetResponse
+from logic.output import PlanetPageResponse, PlanetResponse
 from logic.exceptions import ParameterException
 
 def search_planet(name, queryable):
