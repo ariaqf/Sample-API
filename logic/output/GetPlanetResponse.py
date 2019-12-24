@@ -1,4 +1,4 @@
-from PlanetResponse import PlanetResponse
+from logic.output.PlanetResponse import PlanetResponse
 
 class GetPlanetResponse:
     def __init__(self, planets = None, page = 1):
