@@ -1,7 +1,7 @@
 import pytest
-from logic import get_all
-from test.mock import Database
 from entities import Planet
+from logic import get_all, create_planet
+from test.mock import Database
 from logic.exceptions import ParameterException
 
 queryable = Database()
@@ -22,11 +22,11 @@ def test_get_all_empty():
 def test_get_all():
     for x in range(4):
         i = x+1
-        queryable.save(Planet(id = i, 
+        create_planet( 
                               name = "Planet{}".format(i),
                               climate = "Climate{}".format(i),
                               terrain = "Terrain{}".format(i),
-                              number_of_movies= -1))
+                              datasource = queryable)
     ret = get_all(queryable)
     assert len(ret.planets) == 4
     assert ret.page == 1
