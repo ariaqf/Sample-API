@@ -4,3 +4,4 @@ from logic.get_all_planets import get_all
 #from logic.get_planet import get_planet
 from logic.search_planet import search_planet
 from logic.base_source import BaseSource
+from logic.fetch_movies import fetch_movies
