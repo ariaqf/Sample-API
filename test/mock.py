@@ -36,7 +36,7 @@ class Database(BaseSource):
     
     
     def get(self, id):
-        return list(filter(lambda x : True if x.id == id else False, self.planets))
+        return PlanetsPage(list(filter(lambda x : True if x.id == id else False, self.planets)),1,1,10)
     
     
     def get_by_name(self, name, page = 1, records_per_page = None):
