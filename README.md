@@ -64,7 +64,7 @@ Each use case will be a specific function on our system in the format (obligator
 The Queryable class(es) are abstract class(es) which will get the needed data for the use cases
 
 Also the following DTO classes will be needed:
-- GetPlanetsResponse
+- PlanetPageResponse
 - CreatePlanetResponse
 - DeletePlanetsResponse
 - PlanetResponse

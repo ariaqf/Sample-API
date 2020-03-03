@@ -10,7 +10,7 @@ class PlanetResponse:
     
 
 class PlanetPageResponse:
-    def __init__(self, planets = None, page = 1, total_pages = 1, records_per_page = 100):
+    def __init__(self, planets = [], page = 1, total_pages = 1, records_per_page = 100):
         self.planets = planets
         self.page = page
         self.total_pages = total_pages
