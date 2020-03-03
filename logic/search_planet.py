@@ -1,9 +1,9 @@
 from logic.output import PlanetPageResponse, PlanetResponse
 from logic.exceptions import ParameterException
 
-def search_planet(name, queryable):
+def search_planet(name, queryable, results_per_page = 10):
     if(queryable is None):
         raise ParameterException("DataSource is not acceptable")
-    ret = queryable.get_by_name(name)
-    return list(map(lambda x: PlanetResponse(x), ret))
+    ret = queryable.get_by_name(name, records_per_page = results_per_page)
+    return ret #list(map(lambda x: PlanetResponse(x), ret))
     
