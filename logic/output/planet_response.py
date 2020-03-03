@@ -1,4 +1,5 @@
 from entities.planet import Planet
+from logic.fetch_movies import fetch_movie_count
 
 class PlanetResponse:
     def __init__(self, planet = Planet()):
@@ -6,7 +7,7 @@ class PlanetResponse:
         self.name = planet.name
         self.climate = planet.climate
         self.terrain = planet.terrain
-        self.number_of_movies = planet.number_of_movies
+        self.number_of_movies = fetch_movie_count(planet.name) 
     
 
 class PlanetPageResponse:
