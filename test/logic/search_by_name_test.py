@@ -33,11 +33,11 @@ def test_search_pages():
     created2 = create_planet('ABC', 'B', 'C', queryable).planet
     created3 = create_planet('BACA', 'B', 'C', queryable).planet
     created4 = create_planet('PPP', 'B', 'C', queryable).planet
-    ret = search_planet(created1.name, queryable, results_per_page = 2)
+    ret = search_planet(created1.name, queryable, records_per_page = 2)
     assert ret.page == 1 
     assert ret.total_pages == 2
     assert len(ret.planets) == 2
-    assert ret.planets[0].name.count('A') > 0
+    assert ret.planets[0].name.count('A') > 0 
     assert ret.planets[1].name.count('A') > 0
     queryable.clean()
 
